@@ -73,6 +73,12 @@
                             </div>
                             <span class="strength-text">Password strength: <span class="strength-value">Weak</span></span>
                         </div>
+                        <div class="password-requirements">
+                            <p class="requirement" data-requirement="length">At least 8 characters</p>
+                            <p class="requirement" data-requirement="uppercase">At least 1 uppercase letter</p>
+                            <p class="requirement" data-requirement="lowercase">At least 1 lowercase letter</p>
+                            <p class="requirement" data-requirement="number">At least 1 number</p>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -112,6 +118,71 @@
         </div>
     </main>
 
+    <script src="../scripts/main.js"></script>
     <script src="../scripts/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('password');
+            const strengthBar = document.querySelector('.strength-level');
+            const strengthValue = document.querySelector('.strength-value');
+            const requirements = document.querySelectorAll('.requirement');
+            const togglePassword = document.querySelector('.toggle-password');
+            
+            // Toggle password visibility
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.classList.toggle('show-password');
+            });
+            
+            // Check password strength
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                let strength = 0;
+                
+                // Reset requirements
+                requirements.forEach(req => req.classList.remove('met'));
+                
+                // Check length
+                if (password.length >= 8) {
+                    strength += 25;
+                    document.querySelector('[data-requirement="length"]').classList.add('met');
+                }
+                
+                // Check uppercase
+                if (/[A-Z]/.test(password)) {
+                    strength += 25;
+                    document.querySelector('[data-requirement="uppercase"]').classList.add('met');
+                }
+                
+                // Check lowercase
+                if (/[a-z]/.test(password)) {
+                    strength += 25;
+                    document.querySelector('[data-requirement="lowercase"]').classList.add('met');
+                }
+                
+                // Check numbers
+                if (/[0-9]/.test(password)) {
+                    strength += 25;
+                    document.querySelector('[data-requirement="number"]').classList.add('met');
+                }
+                
+                // Update strength bar
+                strengthBar.style.width = strength + '%';
+                strengthBar.setAttribute('data-strength', Math.ceil(strength / 25));
+                
+                // Update strength text
+                if (strength <= 25) {
+                    strengthValue.textContent = 'Weak';
+                } else if (strength <= 50) {
+                    strengthValue.textContent = 'Fair';
+                } else if (strength <= 75) {
+                    strengthValue.textContent = 'Good';
+                } else {
+                    strengthValue.textContent = 'Strong';
+                }
+            });
+        });
+    </script>
 </body>
 </html> 

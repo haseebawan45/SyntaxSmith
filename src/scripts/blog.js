@@ -4,7 +4,7 @@ const blogPosts = [
         title: "Getting Started with JavaScript ES6+ Features",
         excerpt: "Learn about the most important features introduced in modern JavaScript and how to use them effectively.",
         category: "Tutorial",
-        image: "/assets/blog/post-1.jpg",
+        image: "../assets/images/blog/post-1.jpg",
         date: "June 8, 2023",
         readTime: "10 min read",
         tags: ["JavaScript", "ES6", "Programming"]
@@ -13,7 +13,7 @@ const blogPosts = [
         title: "CSS Grid vs Flexbox: When to Use Which?",
         excerpt: "A comprehensive guide to understanding the differences between CSS Grid and Flexbox and choosing the right layout system.",
         category: "Tutorial",
-        image: "/assets/blog/post-2.jpg",
+        image: "../assets/images/blog/post-2.jpg",
         date: "June 5, 2023",
         readTime: "8 min read",
         tags: ["CSS", "Web Development"]
@@ -22,12 +22,56 @@ const blogPosts = [
         title: "Building a RESTful API with Node.js and Express",
         excerpt: "Step-by-step tutorial on creating a robust REST API using Node.js and Express framework.",
         category: "Tutorial",
-        image: "/assets/blog/post-3.jpg",
+        image: "../assets/images/blog/post-3.jpg",
         date: "June 3, 2023",
         readTime: "15 min read",
         tags: ["Node.js", "API", "Backend"]
+    },
+    {
+        title: "Introduction to TypeScript for JavaScript Developers",
+        excerpt: "A beginner-friendly guide to TypeScript and how it can improve your JavaScript development workflow.",
+        category: "Tutorial",
+        image: "../assets/images/blog/post-4.jpg",
+        date: "May 30, 2023",
+        readTime: "12 min read",
+        tags: ["TypeScript", "JavaScript", "Programming"]
+    },
+    {
+        title: "5 Tips to Improve Your Code Reviews",
+        excerpt: "Learn how to make your code reviews more effective and constructive for the whole team.",
+        category: "Tips & Tricks",
+        image: "../assets/images/blog/post-5.jpg",
+        date: "May 28, 2023",
+        readTime: "7 min read",
+        tags: ["Career", "Teamwork", "Best Practices"]
+    },
+    {
+        title: "The Future of Web Development: Trends to Watch",
+        excerpt: "Explore the emerging technologies and methodologies that will shape the future of web development.",
+        category: "Industry News",
+        image: "../assets/images/blog/post-6.jpg",
+        date: "May 25, 2023",
+        readTime: "9 min read",
+        tags: ["Web Development", "Trends", "Technology"]
+    },
+    {
+        title: "How to Land Your First Developer Job",
+        excerpt: "Practical advice for new developers looking to break into the industry and land their first job.",
+        category: "Career Advice",
+        image: "../assets/images/blog/post-7.jpg",
+        date: "May 22, 2023",
+        readTime: "11 min read",
+        tags: ["Career", "Job Search", "Interview"]
+    },
+    {
+        title: "Understanding React Hooks: A Practical Guide",
+        excerpt: "A deep dive into React Hooks and how they can simplify your component logic.",
+        category: "Tutorial",
+        image: "../assets/images/blog/post-8.jpg",
+        date: "May 20, 2023",
+        readTime: "14 min read",
+        tags: ["React", "JavaScript", "Web Development"]
     }
-    // Add more posts as needed
 ];
 
 // DOM Elements
@@ -46,35 +90,38 @@ let currentSort = 'latest';
 document.addEventListener('DOMContentLoaded', () => {
     loadPosts();
     setupEventListeners();
+    animatePostsOnScroll();
 });
 
-// Event Listeners
+// Setup event listeners
 function setupEventListeners() {
-    // Category filter
+    // Category filters
     categoryTags.forEach(tag => {
         tag.addEventListener('click', () => {
-            // Update active state
+            // Update UI
             categoryTags.forEach(t => t.classList.remove('active'));
             tag.classList.add('active');
             
-            // Update filter
+            // Update state
             currentCategory = tag.textContent;
             currentPage = 1;
+            
+            // Reload posts
             loadPosts(true);
         });
     });
-
-    // Sort change
+    
+    // Sort dropdown
     sortSelect.addEventListener('change', () => {
         currentSort = sortSelect.value;
         currentPage = 1;
         loadPosts(true);
     });
-
-    // Load more
+    
+    // Load more button
     loadMoreBtn.addEventListener('click', () => {
         currentPage++;
-        loadPosts(false);
+        loadPosts();
     });
 
     // Newsletter form
@@ -100,8 +147,14 @@ function loadPosts(reset = false) {
     filteredPosts.sort((a, b) => {
         if (currentSort === 'latest') {
             return new Date(b.date) - new Date(a.date);
+        } else if (currentSort === 'popular') {
+            // This would typically use view counts or other metrics
+            // For demo purposes, we'll just use a random sort
+            return 0.5 - Math.random();
+        } else if (currentSort === 'trending') {
+            // Again, this would use real metrics in a production app
+            return 0.5 - Math.random();
         }
-        // Add more sorting options here
         return 0;
     });
 
@@ -148,10 +201,8 @@ function createPostCard(post) {
     return article;
 }
 
-// Animate on scroll
-function setupScrollAnimation() {
-    const posts = document.querySelectorAll('.post-card');
-    
+// Animate posts on scroll for better UX
+function animatePostsOnScroll() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -160,12 +211,30 @@ function setupScrollAnimation() {
             }
         });
     }, {
-        threshold: 0.1
+        root: null,
+        threshold: 0.1,
+        rootMargin: '0px'
     });
-
-    posts.forEach(post => {
+    
+    // Observe featured posts
+    document.querySelectorAll('.featured-post').forEach(post => {
         observer.observe(post);
     });
+    
+    // Observe post cards as they're added
+    const postsObserver = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach(node => {
+                    if (node.classList && node.classList.contains('post-card')) {
+                        observer.observe(node);
+                    }
+                });
+            }
+        });
+    });
+    
+    postsObserver.observe(postsGrid, { childList: true });
 }
 
 // Handle theme changes

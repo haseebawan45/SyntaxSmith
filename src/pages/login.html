@@ -92,6 +92,39 @@
         </div>
     </main>
 
+    <script src="../scripts/main.js"></script>
     <script src="../scripts/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const togglePassword = document.querySelector('.toggle-password');
+            const passwordInput = document.getElementById('password');
+            
+            // Toggle password visibility
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.classList.toggle('show-password');
+            });
+            
+            // Add animation to form fields
+            const formFields = document.querySelectorAll('.form-group input');
+            formFields.forEach(field => {
+                field.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+                
+                field.addEventListener('blur', function() {
+                    if (!this.value) {
+                        this.parentElement.classList.remove('focused');
+                    }
+                });
+                
+                // Check for pre-filled values (e.g., from browser autofill)
+                if (field.value) {
+                    field.parentElement.classList.add('focused');
+                }
+            });
+        });
+    </script>
 </body>
 </html> 
