@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - SyntaxSmith</title>
+    <meta name="description" content="Stay updated with the latest programming tutorials, tips, and industry insights from SyntaxSmith.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/animations.css">
+    <link rel="stylesheet" href="../styles/blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <!-- Same header as index.html -->
+        <div class="container">
+            <div class="logo-wrapper">
+                <a href="/" class="logo">
+                    <span class="logo-text">Syntax<span class="accent">Smith</span></span>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="../../courses.html" class="nav-link">Courses</a></li>
+                    <li><a href="playground.html" class="nav-link">Playground</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span class="sr-only">Toggle theme</span>
+                    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                </button>
+                <a href="/login" class="btn btn-outline">Log in</a>
+                <a href="/signup" class="btn btn-primary">Sign up free</a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="blog-main">
+        <section class="blog-hero">
+            <div class="container">
+                <h1>Latest from SyntaxSmith</h1>
+                <p class="subtitle">Tutorials, tips, and insights to help you master programming</p>
+                
+                <div class="blog-categories">
+                    <button class="category-tag active">All</button>
+                    <button class="category-tag">Tutorials</button>
+                    <button class="category-tag">Tips & Tricks</button>
+                    <button class="category-tag">Industry News</button>
+                    <button class="category-tag">Career Advice</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-posts">
+            <div class="container">
+                <div class="featured-grid">
+                    <article class="featured-post main-feature">
+                        <div class="post-image" style="background-image: url('/assets/blog/featured-1.jpg');">
+                            <div class="post-overlay">
+                                <span class="post-category">Tutorial</span>
+                                <h2>Building Modern Web Apps with React and TypeScript</h2>
+                                <p class="post-excerpt">Learn how to leverage TypeScript's powerful type system to build more robust React applications.</p>
+                                <div class="post-meta">
+                                    <span class="post-date">June 15, 2023</span>
+                                    <span class="read-time">12 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="featured-post">
+                        <div class="post-image" style="background-image: url('/assets/blog/featured-2.jpg');">
+                            <div class="post-overlay">
+                                <span class="post-category">Career</span>
+                                <h3>From Junior to Senior: A Developer's Journey</h3>
+                                <div class="post-meta">
+                                    <span class="post-date">June 12, 2023</span>
+                                    <span class="read-time">8 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="featured-post">
+                        <div class="post-image" style="background-image: url('/assets/blog/featured-3.jpg');">
+                            <div class="post-overlay">
+                                <span class="post-category">Tips</span>
+                                <h3>10 VS Code Extensions Every Developer Needs</h3>
+                                <div class="post-meta">
+                                    <span class="post-date">June 10, 2023</span>
+                                    <span class="read-time">6 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-posts">
+            <div class="container">
+                <div class="posts-header">
+                    <h2>Latest Articles</h2>
+                    <div class="posts-filter">
+                        <label for="sort-posts">Sort by:</label>
+                        <select id="sort-posts" class="select-input">
+                            <option value="latest">Latest</option>
+                            <option value="popular">Most Popular</option>
+                            <option value="trending">Trending</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="posts-grid">
+                    <!-- Post cards will be dynamically loaded here -->
+                </div>
+
+                <div class="load-more">
+                    <button class="btn btn-outline btn-lg">Load More Articles</button>
+                </div>
+            </div>
+        </section>
+
+        <aside class="blog-sidebar">
+            <div class="sidebar-widget">
+                <h3>Popular Tags</h3>
+                <div class="tag-cloud">
+                    <a href="#" class="tag">JavaScript</a>
+                    <a href="#" class="tag">React</a>
+                    <a href="#" class="tag">Python</a>
+                    <a href="#" class="tag">Web Development</a>
+                    <a href="#" class="tag">Career</a>
+                    <a href="#" class="tag">CSS</a>
+                    <a href="#" class="tag">TypeScript</a>
+                    <a href="#" class="tag">Programming</a>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Newsletter</h3>
+                <p>Get the latest articles and resources in your inbox weekly.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2023 SyntaxSmith. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/blog.js"></script>
+</body>
+</html> 

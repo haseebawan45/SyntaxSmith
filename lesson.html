@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Variables and Data Types - SyntaxSmith</title>
+    <meta name="description" content="Learn about variables and data types in JavaScript with interactive examples and exercises.">
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/animations.css">
+    <link rel="stylesheet" href="src/styles/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo-wrapper">
+                <a href="/" class="logo">
+                    <span class="logo-text">Syntax<span class="accent">Smith</span></span>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="/courses" class="nav-link active">Courses</a></li>
+                    <li><a href="/playground" class="nav-link">Playground</a></li>
+                    <li><a href="/blog" class="nav-link">Blog</a></li>
+                    <li><a href="/about" class="nav-link">About</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span class="sr-only">Toggle theme</span>
+                    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                </button>
+                <a href="/login" class="btn btn-outline">Log in</a>
+                <a href="/signup" class="btn btn-primary">Sign up free</a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="course-info">
+                <h2>JavaScript Essentials</h2>
+                <div class="progress-wrapper">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 25%;"></div>
+                    </div>
+                    <span class="progress-text">25% Complete</span>
+                </div>
+            </div>
+            
+            <nav class="lesson-navigation">
+                <div class="module">
+                    <button class="module-toggle active">
+                        <span>Module 1: JavaScript Basics</span>
+                        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    
+                    <ul class="lessons-list">
+                        <li class="completed">
+                            <a href="#">Introduction to JavaScript</a>
+                            <svg class="icon-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+                        </li>
+                        <li class="active">
+                            <a href="#">Variables and Data Types</a>
+                            <span class="current-indicator"></span>
+                        </li>
+                        <li>
+                            <a href="#">Operators and Expressions</a>
+                        </li>
+                        <li>
+                            <a href="#">Control Flow: Conditional Statements</a>
+                        </li>
+                        <li>
+                            <a href="#">Control Flow: Loops</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <button class="module-toggle">
+                        <span>Module 2: Functions</span>
+                        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    
+                    <ul class="lessons-list" style="display: none;">
+                        <li>
+                            <a href="#">Function Declarations</a>
+                        </li>
+                        <li>
+                            <a href="#">Function Expressions</a>
+                        </li>
+                        <li>
+                            <a href="#">Arrow Functions</a>
+                        </li>
+                        <li>
+                            <a href="#">Scope and Closures</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <button class="module-toggle">
+                        <span>Module 3: Objects and Arrays</span>
+                        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    
+                    <ul class="lessons-list" style="display: none;">
+                        <li>
+                            <a href="#">Working with Arrays</a>
+                        </li>
+                        <li>
+                            <a href="#">Array Methods</a>
+                        </li>
+                        <li>
+                            <a href="#">Creating Objects</a>
+                        </li>
+                        <li>
+                            <a href="#">Object Properties and Methods</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        
+        <section class="lesson-content">
+            <div class="lesson-header">
+                <div class="lesson-breadcrumbs">
+                    <a href="/courses">Courses</a>
+                    <span>/</span>
+                    <a href="/courses/javascript-essentials">JavaScript Essentials</a>
+                    <span>/</span>
+                    <span>Variables and Data Types</span>
+                </div>
+                
+                <h1>Variables and Data Types</h1>
+            </div>
+            
+            <div class="lesson-body">
+                <div class="content-block">
+                    <h2>Introduction to Variables</h2>
+                    <p>Variables are containers for storing data values in JavaScript. Unlike other programming languages, JavaScript doesn't make you declare a variable's type - a variable can hold a value of any data type.</p>
+                    
+                    <p>In modern JavaScript, we have three ways to declare variables:</p>
+                    <ul>
+                        <li><code>let</code> - used for variables whose values will change</li>
+                        <li><code>const</code> - used for variables whose values will remain constant</li>
+                        <li><code>var</code> - older way to declare variables (generally avoided in modern code)</li>
+                    </ul>
+                </div>
+                
+                <div class="content-block">
+                    <h2>Declaring Variables</h2>
+                    <p>Here's how to declare variables in JavaScript:</p>
+                    
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>JavaScript</span>
+                            <button class="btn-copy" aria-label="Copy code">
+                                <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                            </button>
+                        </div>
+                        <pre><code class="language-javascript">// Using let for variables that will change
+let age = 25;
+let name = "John";
+
+// Using const for variables that won't change
+const PI = 3.14159;
+const MAX_SIZE = 100;
+
+// Changing a let variable's value
+age = 26;
+
+// This would cause an error: 
+// PI = 3.14; // Cannot reassign a constant</code></pre>
+                    </div>
+                    
+                    <div class="info-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        <p>Always use <code>const</code> by default, and only use <code>let</code> when you know the variable's value will change.</p>
+                    </div>
+                </div>
+                
+                <div class="content-block">
+                    <h2>JavaScript Data Types</h2>
+                    <p>JavaScript has eight basic data types:</p>
+                    
+                    <div class="data-types-grid">
+                        <div class="data-type-card">
+                            <h3>String</h3>
+                            <p>Represents textual data enclosed in quotes:</p>
+                            <code>let name = "John";<br>let message = 'Hello';</code>
+                        </div>
+                        
+                        <div class="data-type-card">
+                            <h3>Number</h3>
+                            <p>Represents both integers and floating-point numbers:</p>
+                            <code>let age = 25;<br>let price = 19.99;</code>
+                        </div>
+                        
+                        <div class="data-type-card">
+                            <h3>Boolean</h3>
+                            <p>Represents a logical value:</p>
+                            <code>let isActive = true;<br>let hasPermission = false;</code>
+                        </div>
+                        
+                        <div class="data-type-card">
+                            <h3>Null</h3>
+                            <p>Represents a deliberate non-value:</p>
+                            <code>let user = null;</code>
+                        </div>
+                        
+                        <div class="data-type-card">
+                            <h3>Undefined</h3>
+                            <p>Represents an unassigned value:</p>
+                            <code>let message;<br>// Value is undefined</code>
+                        </div>
+                        
+                        <div class="data-type-card">
+                            <h3>Object</h3>
+                            <p>Complex data structure:</p>
+                            <code>let person = {<br>  name: "John",<br>  age: 25<br>};</code>
+                        </div>
+                        
+                        <div class="data-type-card">
+                            <h3>Symbol</h3>
+                            <p>Unique and immutable primitive value:</p>
+                            <code>let id = Symbol("id");</code>
+                        </div>
+                        
+                        <div class="data-type-card">
+                            <h3>BigInt</h3>
+                            <p>For integers of arbitrary length:</p>
+                            <code>let bigNumber = 1234567890123456789012345n;</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-block">
+                    <h2>Type Conversion</h2>
+                    <p>JavaScript is a dynamically typed language, which means you don't need to specify the data type of a variable when you declare it. This also means that data types can be automatically converted when needed.</p>
+                    
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>JavaScript</span>
+                            <button class="btn-copy" aria-label="Copy code">
+                                <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                            </button>
+                        </div>
+                        <pre><code class="language-javascript">// String to Number
+let strNumber = "42";
+let number = Number(strNumber);  // Explicit conversion
+console.log(number);             // 42
+
+// Number to String
+let value = 42;
+let strValue = String(value);    // Explicit conversion
+console.log(strValue);           // "42"
+
+// Boolean conversion
+console.log(Boolean(1));         // true
+console.log(Boolean(0));         // false
+console.log(Boolean(""));        // false
+console.log(Boolean("hello"));   // true</code></pre>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v-2h-2v2zm0-4h2V7h-2v6z"/></svg>
+                        <p>Beware of automatic type conversion in JavaScript, especially when using the <code>==</code> operator. Use the <code>===</code> operator for strict equality checks without type conversion.</p>
+                    </div>
+                </div>
+                
+                <div class="interactive-section">
+                    <h2>Interactive Exercise</h2>
+                    <p>Try to fix the errors in the following code:</p>
+                    
+                    <div class="code-editor-wrapper">
+                        <div class="code-editor">
+                            <div class="editor-header">
+                                <div class="editor-dots">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                </div>
+                                <span class="filename">variables-exercise.js</span>
+                                <button class="btn-reset">Reset</button>
+                            </div>
+                            <div class="editor-body">
+                                <textarea class="code-textarea" spellcheck="false">// Fix these errors
+const userName = "Alex";
+userName = "John";  // Error 1
+
+let userAge = "25";
+let votingAge = 18;
+if (userAge > votingAge) {  // Error 2
+    console.log(userName + " can vote!");
+}
+
+// Make this variable a constant
+var API_KEY = "abc123xyz";  // Error 3</textarea>
+                            </div>
+                            <div class="editor-footer">
+                                <button class="btn btn-primary btn-run">Run Code</button>
+                                <button class="btn btn-outline btn-solution">Show Solution</button>
+                            </div>
+                        </div>
+                        
+                        <div class="console-output">
+                            <div class="console-header">
+                                <span>Console</span>
+                                <button class="btn-clear">Clear</button>
+                            </div>
+                            <div class="console-body">
+                                <div class="console-message console-error">Uncaught TypeError: Assignment to constant variable.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-block lesson-summary">
+                    <h2>Summary</h2>
+                    <ul>
+                        <li>Variables are declared using <code>let</code>, <code>const</code>, or <code>var</code>.</li>
+                        <li>Use <code>const</code> by default, and <code>let</code> when the variable value will change.</li>
+                        <li>JavaScript has eight primitive data types: String, Number, Boolean, Null, Undefined, Object, Symbol, and BigInt.</li>
+                        <li>JavaScript performs automatic type conversion when needed.</li>
+                        <li>Use explicit conversion methods like <code>Number()</code>, <code>String()</code>, and <code>Boolean()</code> for clarity.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="lesson-footer">
+                <a href="/courses/javascript-essentials/introduction" class="btn btn-outline btn-prev">
+                    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    Previous Lesson
+                </a>
+                
+                <button class="btn btn-primary btn-complete">
+                    Mark as Complete
+                    <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                </button>
+                
+                <a href="/courses/javascript-essentials/operators" class="btn btn-outline btn-next">
+                    Next Lesson
+                    <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <span class="logo-text">Syntax<span class="accent">Smith</span></span>
+                    </a>
+                    <p>Learn programming the modern way with interactive, bite-sized lessons.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3>Learn</h3>
+                    <ul>
+                        <li><a href="/courses">All Courses</a></li>
+                        <li><a href="/roadmaps">Learning Paths</a></li>
+                        <li><a href="/playground">Code Playground</a></li>
+                        <li><a href="/challenges">Challenges</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/docs">Documentation</a></li>
+                        <li><a href="/cheatsheets">Cheatsheets</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 SyntaxSmith. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="src/scripts/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Module toggle functionality
+            const modulesToggles = document.querySelectorAll('.module-toggle');
+            
+            modulesToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const moduleContent = toggle.nextElementSibling;
+                    toggle.classList.toggle('active');
+                    
+                    if (moduleContent.style.display === 'none') {
+                        moduleContent.style.display = 'block';
+                    } else {
+                        moduleContent.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Code editor functionality
+            const codeTextarea = document.querySelector('.code-textarea');
+            const runButton = document.querySelector('.btn-run');
+            const resetButton = document.querySelector('.btn-reset');
+            const solutionButton = document.querySelector('.btn-solution');
+            const consoleOutput = document.querySelector('.console-body');
+            const clearButton = document.querySelector('.btn-clear');
+            
+            const originalCode = codeTextarea.value;
+            const solutionCode = `// Fix these errors
+let userName = "Alex";  // Changed to let
+userName = "John";  // Now works
+
+let userAge = Number("25");  // Explicitly convert to number
+let votingAge = 18;
+if (userAge > votingAge) {
+    console.log(userName + " can vote!");
+}
+
+// Make this variable a constant
+const API_KEY = "abc123xyz";  // Changed to const`;
+            
+            runButton.addEventListener('click', () => {
+                const code = codeTextarea.value;
+                consoleOutput.innerHTML = '';
+                
+                try {
+                    // Simple check for the three errors
+                    if (code.includes('const userName')) {
+                        throw new Error('TypeError: Assignment to constant variable.');
+                    } else if (!code.includes('Number("25")') && !code.includes("parseInt") && !code.includes("parseFloat")) {
+                        addConsoleMessage('John can vote!', 'log');
+                        addConsoleMessage('Warning: userAge is a string. Consider using Number() to convert it.', 'warning');
+                    } else {
+                        addConsoleMessage('John can vote!', 'log');
+                    }
+                    
+                    if (!code.includes('const API_KEY')) {
+                        addConsoleMessage('Warning: API_KEY should be a constant.', 'warning');
+                    }
+                    
+                    // Check if all errors are fixed
+                    if (code.includes('let userName') && 
+                        (code.includes('Number("25")') || code.includes('parseInt') || code.includes('parseFloat')) && 
+                        code.includes('const API_KEY')) {
+                        addConsoleMessage('Great job! All errors are fixed.', 'success');
+                    }
+                    
+                } catch (e) {
+                    addConsoleMessage(e.message, 'error');
+                }
+            });
+            
+            resetButton.addEventListener('click', () => {
+                codeTextarea.value = originalCode;
+            });
+            
+            solutionButton.addEventListener('click', () => {
+                codeTextarea.value = solutionCode;
+            });
+            
+            clearButton.addEventListener('click', () => {
+                consoleOutput.innerHTML = '';
+            });
+            
+            function addConsoleMessage(message, type) {
+                const messageElement = document.createElement('div');
+                messageElement.className = `console-message console-${type}`;
+                messageElement.textContent = message;
+                consoleOutput.appendChild(messageElement);
+            }
+            
+            // Copy code functionality
+            const copyButtons = document.querySelectorAll('.btn-copy');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const codeBlock = button.closest('.code-example').querySelector('code');
+                    const tempTextarea = document.createElement('textarea');
+                    tempTextarea.value = codeBlock.textContent;
+                    document.body.appendChild(tempTextarea);
+                    tempTextarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempTextarea);
+                    
+                    // Show copied message
+                    const originalSvg = button.innerHTML;
+                    button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>';
+                    
+                    setTimeout(() => {
+                        button.innerHTML = originalSvg;
+                    }, 1500);
+                });
+            });
+            
+            // Mark as complete functionality
+            const completeButton = document.querySelector('.btn-complete');
+            
+            completeButton.addEventListener('click', () => {
+                completeButton.classList.toggle('completed');
+                if (completeButton.classList.contains('completed')) {
+                    completeButton.textContent = 'Completed';
+                } else {
+                    completeButton.textContent = 'Mark as Complete';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

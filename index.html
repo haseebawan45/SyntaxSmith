@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyntaxSmith - Learn Programming the Modern Way</title>
+    <meta name="description" content="Master programming languages and concepts with SyntaxSmith's interactive, bite-sized learning platform.">
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo-wrapper">
+                <a href="/" class="logo">
+                    <span class="logo-text">Syntax<span class="accent">Smith</span></span>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="courses.html" class="nav-link">Courses</a></li>
+                    <li><a href="src/pages/playground.html" class="nav-link">Playground</a></li>
+                    <li><a href="src/pages/blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="src/pages/about.html" class="nav-link">About</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span class="sr-only">Toggle theme</span>
+                    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                </button>
+                <a href="/login" class="btn btn-outline">Log in</a>
+                <a href="/signup" class="btn btn-primary">Sign up free</a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Learn to <span class="accent">code</span> with interactive lessons
+                    </h1>
+                    <p class="hero-subtitle">
+                        Master programming languages from HTML to Python with bite-sized, hands-on tutorials and challenges.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="/courses" class="btn btn-primary btn-lg">Start Learning</a>
+                        <a href="/playground" class="btn btn-outline btn-lg">Try Playground</a>
+                    </div>
+                    
+                    <div class="language-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">And more...</span>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="code-editor">
+                        <div class="editor-header">
+                            <div class="editor-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="filename">hello-world.js</span>
+                        </div>
+                        <div class="editor-content">
+                            <pre><code class="language-javascript">// Welcome to SyntaxSmith!
+function learnToCode() {
+  const languages = [
+    "HTML", "CSS", "JavaScript",
+    "Python", "Java", "C++"
+  ];
+  
+  return languages.map(lang => 
+    `Learn ${lang} today!`
+  );
+}
+
+// Start your coding journey
+learnToCode();</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why SyntaxSmith?</h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path d="M12 14l-6.16-3.422a12.083 12.083 0 00-.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 016.824-2.998 12.078 12.078 0 00-.665-6.479L12 14z"/></svg>
+                        </div>
+                        <h3>Interactive Learning</h3>
+                        <p>Code directly in your browser with our embedded editor and see results in real-time.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <h3>Structured Curriculum</h3>
+                        <p>Follow a carefully crafted path from fundamentals to advanced concepts.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+                        </div>
+                        <h3>Project-Based</h3>
+                        <p>Build real projects that reinforce concepts and showcase your growing skills.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/><path d="M14 17H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                        </div>
+                        <h3>Instant Feedback</h3>
+                        <p>Get immediate feedback on your code with automated tests and guided hints.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        </div>
+                        <h3>Community Support</h3>
+                        <p>Join a community of learners, mentors, and professionals to accelerate your growth.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>
+                        </div>
+                        <h3>Learn at Your Pace</h3>
+                        <p>Access content anytime, anywhere, and progress through lessons on your schedule.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="courses-preview">
+            <div class="container">
+                <h2 class="section-title">Popular Learning Paths</h2>
+                
+                <div class="course-cards">
+                    <div class="course-card">
+                        <div class="course-banner" style="--course-color: var(--color-blue);">
+                            <span class="course-level">Beginner</span>
+                        </div>
+                        <div class="course-content">
+                            <h3>Web Development Fundamentals</h3>
+                            <p>Learn HTML, CSS, and JavaScript to build responsive websites from scratch.</p>
+                            <div class="course-meta">
+                                <span class="lessons-count">42 lessons</span>
+                                <span class="duration">12 hours</span>
+                            </div>
+                            <a href="/courses/web-dev-fundamentals" class="btn btn-outline">Explore Course</a>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <div class="course-banner" style="--course-color: var(--color-green);">
+                            <span class="course-level">Intermediate</span>
+                        </div>
+                        <div class="course-content">
+                            <h3>Python for Data Science</h3>
+                            <p>Master Python libraries for data analysis, visualization, and machine learning.</p>
+                            <div class="course-meta">
+                                <span class="lessons-count">38 lessons</span>
+                                <span class="duration">15 hours</span>
+                            </div>
+                            <a href="/courses/python-data-science" class="btn btn-outline">Explore Course</a>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <div class="course-banner" style="--course-color: var(--color-purple);">
+                            <span class="course-level">Advanced</span>
+                        </div>
+                        <div class="course-content">
+                            <h3>Full-Stack JavaScript</h3>
+                            <p>Build modern web applications with React, Node.js, Express, and MongoDB.</p>
+                            <div class="course-meta">
+                                <span class="lessons-count">56 lessons</span>
+                                <span class="duration">24 hours</span>
+                            </div>
+                            <a href="/courses/fullstack-javascript" class="btn btn-outline">Explore Course</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="courses-cta">
+                    <a href="/courses" class="btn btn-primary">View All Courses</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Students Say</h2>
+                
+                <div class="testimonials-slider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"SyntaxSmith transformed my learning experience. The interactive lessons and immediate feedback helped me grasp concepts faster than any other platform."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-info">
+                                <h4>Alex Johnson</h4>
+                                <p>Front-end Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"I went from complete beginner to landing my first junior developer role in 6 months thanks to SyntaxSmith's structured curriculum and project-based approach."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-info">
+                                <h4>Sarah Chen</h4>
+                                <p>Full-stack Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The playground feature allowed me to experiment with code in real-time, making complex concepts much easier to understand. Best learning platform I've used."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-info">
+                                <h4>Michael Rodriguez</h4>
+                                <p>Data Scientist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="prev-slide" aria-label="Previous testimonial">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <div class="slide-dots">
+                        <button class="dot active" aria-label="Go to slide 1"></button>
+                        <button class="dot" aria-label="Go to slide 2"></button>
+                        <button class="dot" aria-label="Go to slide 3"></button>
+                    </div>
+                    <button class="next-slide" aria-label="Next testimonial">
+                        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to start your coding journey?</h2>
+                    <p>Join thousands of learners mastering programming with SyntaxSmith today.</p>
+                    <a href="/signup" class="btn btn-primary btn-lg">Get Started for Free</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <span class="logo-text">Syntax<span class="accent">Smith</span></span>
+                    </a>
+                    <p>Learn programming the modern way with interactive, bite-sized lessons.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3>Learn</h3>
+                    <ul>
+                        <li><a href="/courses">All Courses</a></li>
+                        <li><a href="/roadmaps">Learning Paths</a></li>
+                        <li><a href="/playground">Code Playground</a></li>
+                        <li><a href="/challenges">Challenges</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/docs">Documentation</a></li>
+                        <li><a href="/cheatsheets">Cheatsheets</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="newsletter">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest tutorials and updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 SyntaxSmith. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="src/scripts/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,150 @@
+/* Playground Layout */
+.playground-main {
+    height: calc(100vh - var(--header-height));
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-surface);
+}
+
+.playground-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.toolbar-left, .toolbar-right {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+/* Select Input Styling */
+.select-input {
+    padding: 0.5rem var(--space-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color var(--transition-fast);
+}
+
+.select-input:hover, .select-input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+/* Button Icons */
+.btn .icon {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.4em;
+    fill: currentColor;
+}
+
+.btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+/* Editor Layout */
+.playground-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1px;
+    background-color: var(--color-border);
+    overflow: hidden;
+}
+
+.editor-container, .output-container {
+    background-color: var(--color-background);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Monaco Editor Customization */
+#code-editor {
+    flex: 1;
+    min-height: 0;
+}
+
+/* Output Panel */
+.output-container {
+    border-left: 1px solid var(--color-border);
+}
+
+.output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.output-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+#output-panel {
+    flex: 1;
+    padding: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    color: var(--color-text-primary);
+}
+
+/* Console Output Styling */
+.output-error {
+    color: var(--color-error);
+}
+
+.output-success {
+    color: var(--color-success);
+}
+
+.output-info {
+    color: var(--color-text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .playground-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 3fr 2fr;
+    }
+
+    .toolbar-right {
+        display: none;
+    }
+
+    .toolbar-left {
+        width: 100%;
+    }
+
+    .select-input {
+        flex: 1;
+    }
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .monaco-editor {
+    background-color: var(--color-surface) !important;
+}
+
+[data-theme="dark"] .monaco-editor .margin {
+    background-color: var(--color-surface-variant) !important;
+} 

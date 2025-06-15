@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - SyntaxSmith</title>
+    <meta name="description" content="Find answers to frequently asked questions about SyntaxSmith's platform, courses, and features.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/animations.css">
+    <link rel="stylesheet" href="../styles/faq.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <!-- Same header as index.html -->
+    </header>
+
+    <main class="faq-main">
+        <div class="container">
+            <section class="faq-hero">
+                <h1>Frequently Asked Questions</h1>
+                <p>Find answers to common questions about SyntaxSmith</p>
+                
+                <div class="search-container">
+                    <div class="search-input">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                        <input type="search" placeholder="Search frequently asked questions...">
+                    </div>
+                </div>
+            </section>
+
+            <section class="faq-categories">
+                <div class="category-tabs">
+                    <button class="category-tab active" data-category="general">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+                        General
+                    </button>
+                    <button class="category-tab" data-category="courses">
+                        <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+                        Courses
+                    </button>
+                    <button class="category-tab" data-category="account">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                        Account
+                    </button>
+                    <button class="category-tab" data-category="billing">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+                        Billing
+                    </button>
+                    <button class="category-tab" data-category="technical">
+                        <svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+                        Technical
+                    </button>
+                </div>
+
+                <div class="faq-list">
+                    <!-- General Questions -->
+                    <div class="faq-category active" data-category="general">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What is SyntaxSmith?</span>
+                                <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    SyntaxSmith is a modern educational platform designed to help people learn programming through
+                                    interactive exercises, real-world projects, and a supportive community. Our platform combines
+                                    cutting-edge technology with proven learning methodologies to create an engaging and effective
+                                    learning experience.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How is SyntaxSmith different from other platforms?</span>
+                                <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    SyntaxSmith stands out through our:
+                                </p>
+                                <ul>
+                                    <li>Interactive learning environment with real-time feedback</li>
+                                    <li>Project-based curriculum focused on practical skills</li>
+                                    <li>Active community of learners and mentors</li>
+                                    <li>Personalized learning paths</li>
+                                    <li>Industry-relevant content updated regularly</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Do I need prior programming experience?</span>
+                                <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    No prior experience is required! Our courses are designed for all skill levels, from complete
+                                    beginners to advanced developers. We offer structured learning paths that start with the basics
+                                    and progressively build up to more complex concepts.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Questions -->
+                    <div class="faq-category" data-category="courses">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What courses do you offer?</span>
+                                <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    We offer a wide range of programming courses, including:
+                                </p>
+                                <ul>
+                                    <li>Web Development (HTML, CSS, JavaScript)</li>
+                                    <li>Python Programming</li>
+                                    <li>Java Development</li>
+                                    <li>Data Structures and Algorithms</li>
+                                    <li>Mobile App Development</li>
+                                    <li>Database Management</li>
+                                    <li>Machine Learning and AI</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How long does it take to complete a course?</span>
+                                <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    Course completion time varies depending on the course complexity and your learning pace. Most
+                                    courses are designed to be completed in 8-12 weeks when studying 5-10 hours per week. However,
+                                    you can learn at your own pace, and all course materials remain accessible after completion.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Questions -->
+                    <div class="faq-category" data-category="account">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How do I create an account?</span>
+                                <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    Creating an account is simple:
+                                </p>
+                                <ol>
+                                    <li>Click the "Sign Up" button in the top right corner</li>
+                                    <li>Enter your email address and create a password</li>
+                                    <li>Verify your email address</li>
+                                    <li>Complete your profile information</li>
+                                    <li>Start learning!</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Can I change my email address or username?</span>
+                                <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    Yes, you can change both your email address and username from your account settings. Note that
+                                    email changes require verification of the new address, and usernames must be unique across the
+                                    platform.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Billing Questions -->
+                    <div class="faq-category" data-category="billing">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What payment methods do you accept?</span>
+                                <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    We accept the following payment methods:
+                                </p>
+                                <ul>
+                                    <li>Credit/Debit Cards (Visa, MasterCard, American Express)</li>
+                                    <li>PayPal</li>
+                                    <li>Bank Transfer</li>
+                                    <li>Apple Pay</li>
+                                    <li>Google Pay</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Do you offer refunds?</span>
+                                <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    Yes, we offer a 30-day money-back guarantee for all course purchases. If you're not satisfied
+                                    with your learning experience, you can request a full refund within 30 days of purchase, no
+                                    questions asked.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Questions -->
+                    <div class="faq-category" data-category="technical">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What are the system requirements?</span>
+                                <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    Minimum system requirements:
+                                </p>
+                                <ul>
+                                    <li>Modern web browser (Chrome, Firefox, Safari, Edge)</li>
+                                    <li>Stable internet connection (2+ Mbps)</li>
+                                    <li>4GB RAM</li>
+                                    <li>1GB free storage space</li>
+                                </ul>
+                                <p>
+                                    Recommended:
+                                </p>
+                                <ul>
+                                    <li>Latest Chrome or Firefox</li>
+                                    <li>5+ Mbps internet connection</li>
+                                    <li>8GB RAM</li>
+                                    <li>5GB free storage space</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Can I access courses offline?</span>
+                                <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    Yes, you can download course materials for offline access through our mobile app. This includes
+                                    video lectures, reading materials, and exercises. However, some features like code execution
+                                    and community interactions require an internet connection.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-support">
+                <h2>Still have questions?</h2>
+                <p>Can't find the answer you're looking for? Our support team is here to help.</p>
+                <div class="support-options">
+                    <a href="/contact" class="support-option">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <h3>Email Support</h3>
+                        <p>Get a response within 24 hours</p>
+                    </a>
+                    <a href="/chat" class="support-option">
+                        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+                        <h3>Live Chat</h3>
+                        <p>Chat with our support team</p>
+                    </a>
+                    <a href="/community" class="support-option">
+                        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        <h3>Community</h3>
+                        <p>Ask the community for help</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../scripts/faq.js"></script>
+</body>
+</html> 

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - SyntaxSmith</title>
+    <meta name="description" content="Comprehensive documentation for SyntaxSmith's features, API references, and guides.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/animations.css">
+    <link rel="stylesheet" href="../styles/docs.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <!-- Same header as index.html -->
+    </header>
+
+    <div class="docs-container">
+        <aside class="docs-sidebar">
+            <div class="sidebar-header">
+                <h2>Documentation</h2>
+                <button class="close-sidebar" aria-label="Close sidebar">
+                    <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+
+            <div class="sidebar-search">
+                <div class="search-input">
+                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    <input type="search" placeholder="Search documentation...">
+                </div>
+            </div>
+
+            <nav class="docs-nav">
+                <div class="nav-group">
+                    <h3>Getting Started</h3>
+                    <ul>
+                        <li><a href="#introduction" class="active">Introduction</a></li>
+                        <li><a href="#quick-start">Quick Start Guide</a></li>
+                        <li><a href="#installation">Installation</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h3>Core Concepts</h3>
+                    <ul>
+                        <li><a href="#architecture">Architecture</a></li>
+                        <li><a href="#components">Components</a></li>
+                        <li><a href="#routing">Routing</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h3>Features</h3>
+                    <ul>
+                        <li><a href="#authentication">Authentication</a></li>
+                        <li><a href="#code-editor">Code Editor</a></li>
+                        <li><a href="#syntax-highlighting">Syntax Highlighting</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h3>API Reference</h3>
+                    <ul>
+                        <li><a href="#rest-api">REST API</a></li>
+                        <li><a href="#websocket-api">WebSocket API</a></li>
+                        <li><a href="#hooks">Hooks</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h3>Deployment</h3>
+                    <ul>
+                        <li><a href="#hosting">Hosting Guide</a></li>
+                        <li><a href="#security">Security</a></li>
+                        <li><a href="#performance">Performance</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="docs-content">
+            <div class="content-header">
+                <button class="toggle-sidebar" aria-label="Toggle sidebar">
+                    <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                </button>
+                <div class="breadcrumbs">
+                    <a href="/docs">Docs</a>
+                    <span>/</span>
+                    <span>Getting Started</span>
+                </div>
+            </div>
+
+            <article class="content-body">
+                <section id="introduction">
+                    <h1>Introduction</h1>
+                    <p class="lead">
+                        Welcome to the SyntaxSmith documentation. Here you'll find everything you need to know about using our platform
+                        for learning and teaching programming.
+                    </p>
+
+                    <div class="info-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        <p>
+                            This documentation is continuously updated. Make sure to check back regularly for the latest information.
+                        </p>
+                    </div>
+
+                    <h2>What is SyntaxSmith?</h2>
+                    <p>
+                        SyntaxSmith is a modern educational platform designed to help people learn programming through interactive
+                        exercises, real-world projects, and a supportive community. Our platform combines the best practices in
+                        education with cutting-edge technology to create an engaging learning experience.
+                    </p>
+
+                    <h2>Key Features</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+                            <h3>Interactive Code Editor</h3>
+                            <p>Write, run, and debug code directly in your browser with our powerful Monaco-based editor.</p>
+                        </div>
+                        <div class="feature-card">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                            <h3>Global Community</h3>
+                            <p>Connect with learners and mentors from around the world to share knowledge and experiences.</p>
+                        </div>
+                        <div class="feature-card">
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <h3>Gamified Learning</h3>
+                            <p>Earn points, badges, and certificates as you progress through our structured learning paths.</p>
+                        </div>
+                    </div>
+
+                    <h2>System Requirements</h2>
+                    <div class="requirements-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Component</th>
+                                    <th>Minimum</th>
+                                    <th>Recommended</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Browser</td>
+                                    <td>Chrome 80+, Firefox 75+</td>
+                                    <td>Latest Chrome or Firefox</td>
+                                </tr>
+                                <tr>
+                                    <td>RAM</td>
+                                    <td>4GB</td>
+                                    <td>8GB</td>
+                                </tr>
+                                <tr>
+                                    <td>Storage</td>
+                                    <td>1GB free space</td>
+                                    <td>5GB free space</td>
+                                </tr>
+                                <tr>
+                                    <td>Internet</td>
+                                    <td>2 Mbps</td>
+                                    <td>5+ Mbps</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>Next Steps</h2>
+                        <div class="step-links">
+                            <a href="#quick-start" class="step-link">
+                                <span>Quick Start Guide</span>
+                                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                            </a>
+                            <a href="#installation" class="step-link">
+                                <span>Installation Guide</span>
+                                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Additional sections would go here -->
+            </article>
+
+            <div class="content-footer">
+                <div class="page-nav">
+                    <a href="#" class="prev">
+                        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                        <span>Previous</span>
+                    </a>
+                    <a href="#quick-start" class="next">
+                        <span>Next</span>
+                        <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    </a>
+                </div>
+
+                <div class="page-meta">
+                    <div class="last-updated">
+                        Last updated: <time datetime="2024-03-15">March 15, 2024</time>
+                    </div>
+                    <div class="page-actions">
+                        <button class="action-btn">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                            Was this helpful?
+                        </button>
+                        <button class="action-btn">
+                            <svg viewBox="0 0 24 24"><path d="M14.06 9.02l.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z"/></svg>
+                            Edit this page
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../scripts/docs.js"></script>
+</body>
+</html> 

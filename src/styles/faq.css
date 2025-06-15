@@ -1,0 +1,308 @@
+/* FAQ Layout */
+.faq-main {
+    padding: var(--space-2xl) 0;
+    background-color: var(--color-background);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+/* Hero Section */
+.faq-hero {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.faq-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: var(--space-sm);
+}
+
+.faq-hero p {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xl);
+}
+
+/* Search Container */
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-input {
+    position: relative;
+}
+
+.search-input svg {
+    position: absolute;
+    left: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    fill: var(--color-text-tertiary);
+}
+
+.search-input input {
+    width: 100%;
+    padding: var(--space-md) var(--space-md) var(--space-md) calc(var(--space-md) * 3);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+    transition: all var(--transition-fast);
+}
+
+.search-input input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px var(--color-primary-light);
+}
+
+/* Category Tabs */
+.category-tabs {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+    overflow-x: auto;
+    padding-bottom: var(--space-sm);
+    -webkit-overflow-scrolling: touch;
+}
+
+.category-tab {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+
+.category-tab svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.category-tab:hover {
+    background-color: var(--color-surface-variant);
+    color: var(--color-text-primary);
+}
+
+.category-tab.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* FAQ List */
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-category {
+    display: none;
+}
+
+.faq-category.active {
+    display: block;
+}
+
+.faq-item {
+    margin-bottom: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-lg);
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.faq-question:hover {
+    background-color: var(--color-surface-variant);
+}
+
+.faq-question svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--color-text-tertiary);
+    transition: transform var(--transition-fast);
+}
+
+.faq-item.active .faq-question {
+    background-color: var(--color-surface-variant);
+}
+
+.faq-item.active .faq-question svg {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 var(--space-lg) var(--space-lg);
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+    animation: slideDown var(--transition-normal) ease-out;
+}
+
+.faq-answer p {
+    margin-bottom: var(--space-md);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.faq-answer ul,
+.faq-answer ol {
+    margin: 0;
+    padding-left: var(--space-xl);
+    color: var(--color-text-secondary);
+}
+
+.faq-answer li {
+    margin-bottom: var(--space-xs);
+}
+
+/* Contact Support Section */
+.contact-support {
+    text-align: center;
+    margin-top: var(--space-3xl);
+    padding: var(--space-2xl) 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.contact-support h2 {
+    font-size: 2rem;
+    margin-bottom: var(--space-sm);
+}
+
+.contact-support > p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xl);
+}
+
+.support-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+}
+
+.support-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-xl);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.support-option:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.support-option svg {
+    width: 32px;
+    height: 32px;
+    fill: var(--color-primary);
+    margin-bottom: var(--space-md);
+}
+
+.support-option h3 {
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.support-option p {
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faq-main {
+        padding: var(--space-xl) 0;
+    }
+
+    .container {
+        padding: 0 var(--space-md);
+    }
+
+    .category-tabs {
+        margin: 0 calc(var(--space-md) * -1);
+        padding: 0 var(--space-md) var(--space-sm);
+    }
+
+    .faq-question {
+        padding: var(--space-md);
+        font-size: 1rem;
+    }
+
+    .faq-answer {
+        padding: 0 var(--space-md) var(--space-md);
+    }
+
+    .support-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .category-tab {
+    background-color: var(--color-surface-variant);
+}
+
+[data-theme="dark"] .category-tab:hover {
+    background-color: var(--color-surface);
+}
+
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .support-option {
+    background-color: var(--color-surface-variant);
+}
+
+[data-theme="dark"] .faq-question:hover,
+[data-theme="dark"] .faq-item.active .faq-question {
+    background-color: var(--color-surface);
+} 
