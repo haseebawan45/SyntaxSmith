@@ -75,7 +75,8 @@ const Hero: React.FC = () => {
               <span className="filename">hello-world.js</span>
             </div>
             <div className="editor-content">
-              <pre><code className="language-javascript">// Welcome to SyntaxSmith!
+              <pre><code className="language-javascript">
+{`// Welcome to SyntaxSmith!
 function learnToCode() {
   const languages = [
     "HTML", "CSS", "JavaScript",
@@ -83,12 +84,13 @@ function learnToCode() {
   ];
   
   return languages.map(lang => 
-    `Learn ${lang} today!`
+    \`Learn \${lang} today!\`
   );
 }
 
 // Start your coding journey
-learnToCode();</code></pre>
+learnToCode();`}
+              </code></pre>
             </div>
           </div>
         </div>
