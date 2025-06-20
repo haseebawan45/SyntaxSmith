@@ -1,96 +1,46 @@
-# SyntaxSmith - Interactive Programming Education Platform
+# Getting Started with Create React App
 
-SyntaxSmith is a modern, interactive web platform designed to teach programming languages and concepts through bite-sized, hands-on lessons. This project aims to create an engaging and effective learning experience that caters to beginners and advanced learners alike.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![SyntaxSmith Screenshot](./screenshot-placeholder.jpg)
+## Available Scripts
 
-## Features
+In the project directory, you can run:
 
-- **Interactive Learning**: Code directly in your browser with our embedded editor and see results in real-time
-- **Structured Curriculum**: Follow a carefully crafted path from fundamentals to advanced concepts
-- **Project-Based Learning**: Build real projects that reinforce concepts and showcase your growing skills
-- **Instant Feedback**: Get immediate feedback on your code with automated tests and guided hints
-- **Responsive Design**: Seamlessly use the platform on any device - desktop, tablet, or mobile
-- **Dark/Light Mode**: Choose your preferred theme for comfortable viewing in any environment
-- **Modern UI/UX**: Enjoy a clean, intuitive interface with smooth animations and transitions
+### `npm start`
 
-## Project Structure
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-```
-SyntaxSmith/
-├── index.html              # Main landing page
-├── src/                    # Source files
-│   ├── assets/             # Static assets
-│   │   ├── images/         # Image files
-│   │   └── icons/          # Icon files
-│   ├── styles/             # CSS files
-│   │   ├── main.css        # Main stylesheet
-│   │   └── animations.css  # Animation-specific styles
-│   ├── scripts/            # JavaScript files
-│   │   └── main.js         # Main JavaScript code
-│   └── components/         # Reusable UI components
-└── public/                 # Compiled/public files
-```
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-## Pages
+### `npm test`
 
-The site architecture includes the following planned pages:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-1. **Home / Landing Page**: Feature highlights, language selector, hero animation
-2. **Course Catalog**: All languages/topics at a glance with filter/search
-3. **Course Overview**: Curriculum outline, progress tracker
-4. **Lesson / Tutorial Page**: Embedded code editor, examples, video/snippets
-5. **Interactive Playground**: Live code sandbox for trial-and-error
-6. **Quizzes & Challenges**: Automated scoring, hints
-7. **User Dashboard**: Profile, progress, certificates
-8. **Blog / Articles**: Deep dives, news, tutorials
-9. **About Us / Team**
-10. **FAQ & Help Center**
-11. **Contact & Feedback**
-12. **Authentication**: Sign up, login, password reset
-13. **Footer Utility Pages**: Privacy policy, terms
+### `npm run build`
 
-## Design Philosophy
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-SyntaxSmith follows these core design principles:
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-- **Visual Hierarchy**: Clear information architecture and emphasis on learning content
-- **Progressive Disclosure**: Introduce complexity gradually as learners gain confidence
-- **Feedback Loops**: Provide immediate, actionable feedback on code exercises
-- **Accessibility**: WCAG 2.1 AA compliance for an inclusive learning experience
-- **Performance**: Optimized load times and smooth interactions across devices
-- **Delight**: Thoughtful animations and micro-interactions that enhance, not distract
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Technology Stack
+### `npm run eject`
 
-- HTML5 for semantic markup
-- CSS3 with modern features (Grid, Flexbox, Custom Properties)
-- Vanilla JavaScript for interactivity
-- Mobile-first responsive design
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-## Getting Started
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-To view the website locally:
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-1. Clone this repository
-2. Open `index.html` in your web browser
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-No build process is required for basic viewing of the static prototype.
+## Learn More
 
-## Future Development
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- Full implementation of remaining pages
-- Backend integration for user accounts and progress tracking
-- Interactive code editor with real-time compilation/execution
-- Community features (comments, sharing, user profiles)
-- Content management system for creating/editing lessons
-
-## Credits
-
-- Design & Development: SyntaxSmith Team
-- Icons: [SVG icons used in the project]
-- Fonts: Inter (UI) and JetBrains Mono (code)
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details. 
+To learn React, check out the [React documentation](https://reactjs.org/).
