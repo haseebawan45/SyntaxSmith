@@ -4,6 +4,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Home from './components/home/Home';
 import Courses from './components/courses/Courses';
+import CourseSyllabus from './components/courses/CourseSyllabus';
 import Lesson from './components/lesson/Lesson';
 import Playground from './components/playground/Playground';
 import Blog from './components/blog/Blog';
@@ -18,7 +19,8 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/courses" element={<Courses />} />
-          <Route path="/lesson/:id" element={<Lesson />} />
+          <Route path="/courses/:courseId" element={<CourseSyllabus />} />
+          <Route path="/courses/:courseId/lessons/:lessonId" element={<Lesson />} />
           <Route path="/playground" element={<Playground />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/about" element={<About />} />

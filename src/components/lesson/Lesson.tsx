@@ -1,199 +1,158 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import LessonSidebar from './LessonSidebar';
-import LessonContent from './LessonContent';
-import LessonNavigation from './LessonNavigation';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { curriculum } from '../../data/curriculum';
+import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-interface Module {
-  id: number;
-  title: string;
-  lessons: LessonItem[];
+interface CodeEditorProps {
+  code: string;
+  language: string;
+  onCodeChange?: (code: string) => void;
+  readOnly?: boolean;
 }
 
-interface LessonItem {
-  id: number;
-  title: string;
-  isCompleted: boolean;
-}
-
-interface LessonData {
-  id: number;
-  title: string;
-  courseTitle: string;
-  duration: string;
-  content: string;
-  codeExercise?: {
-    title: string;
-    description: string;
-    initialCode: string;
-    solution: string;
-  };
-}
+const CodeEditor: React.FC<CodeEditorProps> = ({ code, language, onCodeChange, readOnly = false }) => {
+  return (
+    <div className="code-editor">
+      <SyntaxHighlighter
+        language={language}
+        style={vscDarkPlus}
+        customStyle={{
+          margin: 0,
+          borderRadius: 'var(--radius-md)',
+          padding: 'var(--space-md)',
+        }}
+      >
+        {code}
+      </SyntaxHighlighter>
+      {!readOnly && (
+        <button className="btn btn-primary run-btn">
+          Run Code
+        </button>
+      )}
+    </div>
+  );
+};
 
 const Lesson: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
-  const [currentLesson, setCurrentLesson] = useState<LessonData | null>(null);
-  const [modules, setModules] = useState<Module[]>([]);
-  const [progress, setProgress] = useState<number>(0);
+  const { courseId, lessonId } = useParams<{ courseId: string; lessonId: string }>();
+  const [activeTab, setActiveTab] = useState<'lesson' | 'challenge'>('lesson');
+  const [userCode, setUserCode] = useState<string>('');
 
-  // Mock data
-  useEffect(() => {
-    // Mock modules and lessons
-    const mockModules: Module[] = [
-      {
-        id: 1,
-        title: 'Getting Started',
-        lessons: [
-          { id: 1, title: 'Introduction to Web Development', isCompleted: true },
-          { id: 2, title: 'Setting Up Your Environment', isCompleted: true },
-          { id: 3, title: 'HTML Basics', isCompleted: false },
-          { id: 4, title: 'Your First Web Page', isCompleted: false }
-        ]
-      },
-      {
-        id: 2,
-        title: 'HTML Fundamentals',
-        lessons: [
-          { id: 5, title: 'HTML Document Structure', isCompleted: false },
-          { id: 6, title: 'Text Elements and Typography', isCompleted: false },
-          { id: 7, title: 'Links and Navigation', isCompleted: false },
-          { id: 8, title: 'Images and Media', isCompleted: false }
-        ]
-      },
-      {
-        id: 3,
-        title: 'CSS Basics',
-        lessons: [
-          { id: 9, title: 'Introduction to CSS', isCompleted: false },
-          { id: 10, title: 'Selectors and Properties', isCompleted: false },
-          { id: 11, title: 'The Box Model', isCompleted: false },
-          { id: 12, title: 'Colors and Typography', isCompleted: false }
-        ]
-      }
-    ];
+  // Find the course and lesson
+  const course = Object.values(curriculum).find(c => c.id === courseId);
+  const module = course?.modules.find(m => m.lessons.some(l => l.id === lessonId));
+  const lesson = module?.lessons.find(l => l.id === lessonId);
+  const challenge = module?.challenges[0]; // For now, just show the first challenge
 
-    // Mock lesson content
-    const mockLesson: LessonData = {
-      id: parseInt(id || '1'),
-      title: 'HTML Basics',
-      courseTitle: 'Web Development Fundamentals',
-      duration: '15 minutes',
-      content: `
-        <h2>Introduction to HTML</h2>
-        <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page and consists of a series of elements that tell the browser how to display the content.</p>
-        
-        <h3>HTML Elements</h3>
-        <p>HTML elements are represented by tags. Tags are enclosed in angle brackets like <code>&lt;tagname&gt;</code>. Most tags come in pairs like <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code>, where the first tag is the start tag and the second tag is the end tag.</p>
-        
-        <h3>Basic Structure</h3>
-        <p>A simple HTML document looks like this:</p>
-        
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Page Title&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;My First Heading&lt;/h1&gt;
-  &lt;p&gt;My first paragraph.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-        
-        <p>Let's break down the structure:</p>
-        <ul>
-          <li><code>&lt;!DOCTYPE html&gt;</code>: Declaration that defines the document type</li>
-          <li><code>&lt;html&gt;</code>: The root element of an HTML page</li>
-          <li><code>&lt;head&gt;</code>: Contains meta-information about the document</li>
-          <li><code>&lt;title&gt;</code>: Specifies a title for the document</li>
-          <li><code>&lt;body&gt;</code>: Contains the visible page content</li>
-          <li><code>&lt;h1&gt;</code>: Defines a large heading</li>
-          <li><code>&lt;p&gt;</code>: Defines a paragraph</li>
-        </ul>
-      `,
-      codeExercise: {
-        title: 'Create Your First HTML Page',
-        description: 'Create a simple HTML page with a heading and a paragraph.',
-        initialCode: `<!DOCTYPE html>
-<html>
-<head>
-  <title>My First Page</title>
-</head>
-<body>
-  <!-- Add an h1 heading here -->
-  
-  <!-- Add a paragraph here -->
-  
-</body>
-</html>`,
-        solution: `<!DOCTYPE html>
-<html>
-<head>
-  <title>My First Page</title>
-</head>
-<body>
-  <h1>Welcome to My First Page</h1>
-  <p>This is my first HTML paragraph.</p>
-</body>
-</html>`
-      }
-    };
-
-    setModules(mockModules);
-    setCurrentLesson(mockLesson);
-
-    // Calculate progress
-    const totalLessons = mockModules.reduce((acc, module) => acc + module.lessons.length, 0);
-    const completedLessons = mockModules.reduce((acc, module) => {
-      return acc + module.lessons.filter(lesson => lesson.isCompleted).length;
-    }, 0);
-    
-    setProgress(Math.round((completedLessons / totalLessons) * 100));
-  }, [id]);
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
-
-  if (!currentLesson) {
-    return <div className="loading">Loading...</div>;
+  if (!course || !module || !lesson) {
+    return (
+      <div className="container">
+        <div className="error-message">
+          <h2>Lesson not found</h2>
+          <p>The requested lesson could not be found.</p>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="lesson-container">
-      <LessonSidebar 
-        modules={modules}
-        currentLessonId={parseInt(id || '1')}
-        progress={progress}
-        isOpen={sidebarOpen}
-        onClose={() => setSidebarOpen(false)}
-      />
-      
-      <main className="lesson-main">
-        <div className="lesson-header">
-          <h1 className="lesson-title">{currentLesson.title}</h1>
+    <div className="lesson-page">
+      <div className="lesson-header">
+        <div className="container">
+          <h1>{lesson.title}</h1>
           <div className="lesson-meta">
-            <span>Course: {currentLesson.courseTitle}</span>
-            <span>Duration: {currentLesson.duration}</span>
+            <span className="duration">
+              <i className="far fa-clock"></i> {lesson.duration}
+            </span>
+            <span className="module">
+              <i className="far fa-folder"></i> {module.title}
+            </span>
           </div>
         </div>
-        
-        <LessonContent 
-          content={currentLesson.content}
-          codeExercise={currentLesson.codeExercise}
-        />
-        
-        <LessonNavigation 
-          currentLessonId={parseInt(id || '1')}
-          modules={modules}
-        />
-      </main>
-      
-      <button className="sidebar-toggle" onClick={toggleSidebar} aria-label="Toggle lesson sidebar">
-        <svg viewBox="0 0 24 24">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
-        </svg>
-      </button>
+      </div>
+
+      <div className="container">
+        <div className="lesson-tabs">
+          <button
+            className={`tab-btn ${activeTab === 'lesson' ? 'active' : ''}`}
+            onClick={() => setActiveTab('lesson')}
+          >
+            Lesson Content
+          </button>
+          <button
+            className={`tab-btn ${activeTab === 'challenge' ? 'active' : ''}`}
+            onClick={() => setActiveTab('challenge')}
+          >
+            Challenge
+          </button>
+        </div>
+
+        <div className="lesson-content">
+          {activeTab === 'lesson' ? (
+            <>
+              <div className="lesson-theory">
+                <ReactMarkdown>{lesson.content}</ReactMarkdown>
+              </div>
+
+              <div className="code-examples">
+                <h2>Code Examples</h2>
+                {lesson.codeExamples.map((example) => (
+                  <div key={example.id} className="code-example">
+                    <h3>{example.title}</h3>
+                    <CodeEditor
+                      code={example.code}
+                      language={course.language}
+                      readOnly
+                    />
+                    <p className="example-explanation">{example.explanation}</p>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <div className="challenge-section">
+              <h2>{challenge.title}</h2>
+              <p className="challenge-description">{challenge.description}</p>
+
+              <div className="challenge-workspace">
+                <CodeEditor
+                  code={userCode || challenge.starterCode}
+                  language={course.language}
+                  onCodeChange={setUserCode}
+                />
+              </div>
+
+              <div className="challenge-hints">
+                <h3>Hints</h3>
+                <ul>
+                  {challenge.hints.map((hint, index) => (
+                    <li key={index}>{hint}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="test-cases">
+                <h3>Test Cases</h3>
+                {challenge.testCases.map((testCase, index) => (
+                  <div key={index} className="test-case">
+                    <div className="test-case-header">
+                      <span className="test-number">Test {index + 1}</span>
+                      <span className="test-status pending">Pending</span>
+                    </div>
+                    <div className="test-details">
+                      <p><strong>Input:</strong> {testCase.input}</p>
+                      <p><strong>Expected Output:</strong> {testCase.expectedOutput}</p>
+                      <p className="test-explanation">{testCase.explanation}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

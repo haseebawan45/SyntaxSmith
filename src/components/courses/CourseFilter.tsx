@@ -1,57 +1,68 @@
 import React from 'react';
+import { Language } from '../../data/curriculum';
 
 interface CourseFilterProps {
-  activeFilter: string;
-  setActiveFilter: (filter: string) => void;
+  selectedLevel: string;
+  selectedLanguage: string;
   searchQuery: string;
-  setSearchQuery: (query: string) => void;
+  onLevelChange: (level: string) => void;
+  onLanguageChange: (language: string) => void;
+  onSearchChange: (query: string) => void;
 }
 
 const CourseFilter: React.FC<CourseFilterProps> = ({
-  activeFilter,
-  setActiveFilter,
+  selectedLevel,
+  selectedLanguage,
   searchQuery,
-  setSearchQuery
+  onLevelChange,
+  onLanguageChange,
+  onSearchChange,
 }) => {
+  const levels = ['all', 'beginner', 'intermediate', 'advanced'];
+  const languages: Array<Language | 'all'> = ['all', 'javascript', 'python', 'java'];
+
   return (
-    <div className="courses-filter">
+    <div className="course-filters">
       <div className="filter-group">
-        <button 
-          className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
-          onClick={() => setActiveFilter('all')}
-        >
-          All Levels
-        </button>
-        <button 
-          className={`filter-btn ${activeFilter === 'beginner' ? 'active' : ''}`}
-          onClick={() => setActiveFilter('beginner')}
-        >
-          Beginner
-        </button>
-        <button 
-          className={`filter-btn ${activeFilter === 'intermediate' ? 'active' : ''}`}
-          onClick={() => setActiveFilter('intermediate')}
-        >
-          Intermediate
-        </button>
-        <button 
-          className={`filter-btn ${activeFilter === 'advanced' ? 'active' : ''}`}
-          onClick={() => setActiveFilter('advanced')}
-        >
-          Advanced
-        </button>
-      </div>
-      
-      <div className="search-bar">
-        <svg viewBox="0 0 24 24">
-          <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        </svg>
-        <input 
-          type="text" 
-          placeholder="Search courses..." 
+        <input
+          type="text"
+          placeholder="Search courses..."
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e) => onSearchChange(e.target.value)}
+          className="search-input"
         />
+      </div>
+
+      <div className="filter-group">
+        <label htmlFor="level-filter">Level:</label>
+        <select
+          id="level-filter"
+          value={selectedLevel}
+          onChange={(e) => onLevelChange(e.target.value)}
+          className="filter-select"
+        >
+          {levels.map((level) => (
+            <option key={level} value={level}>
+              {level.charAt(0).toUpperCase() + level.slice(1)}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="filter-group">
+        <label htmlFor="language-filter">Language:</label>
+        <select
+          id="language-filter"
+          value={selectedLanguage}
+          onChange={(e) => onLanguageChange(e.target.value)}
+          className="filter-select"
+        >
+          {languages.map((language) => (
+            <option key={language} value={language}>
+              {language.charAt(0).toUpperCase() + language.slice(1)}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
   );
