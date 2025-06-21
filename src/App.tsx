@@ -10,14 +10,6 @@ import Blog from './components/blog/Blog';
 import About from './components/about/About';
 import NotFound from './components/common/NotFound';
 
-// Import CSS
-import './styles/main.css';
-import './styles/animations.css';
-import './styles/home.css';
-import './styles/footer.css';
-import './styles/courses.css';
-import './styles/lesson.css';
-
 const App: React.FC = () => {
   return (
     <Router>

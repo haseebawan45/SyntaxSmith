@@ -1,3 +1,46 @@
+/* Import other CSS files */
+@import './animations.css';
+@import './home.css';
+@import './footer.css';
+@import './courses.css';
+@import './lesson.css';
+
+/* Global styles */
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #0ea5e9;
+  --text-color: #1f2937;
+  --background-color: #ffffff;
+  --accent-color: #8b5cf6;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --border-color: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.6;
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 /* ===== RESET & BASE STYLES ===== */
 :root {
     /* Color Variables - Light Mode */
